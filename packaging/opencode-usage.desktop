@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=OpenCode Usage
+Comment=OpenCode Go allowance and newest-session usage
+Exec=@EXEC@
+Icon=utilities-system-monitor
+Terminal=false
+Categories=Utility;Development;
+StartupWMClass=opencode_usage
