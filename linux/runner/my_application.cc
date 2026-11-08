@@ -26,6 +26,18 @@ static void my_application_activate(GApplication* application) {
   if (settings != NULL) {
     g_object_set(settings, "gtk-application-prefer-dark-theme", TRUE, NULL);
   }
+  GtkCssProvider* css = gtk_css_provider_new();
+  gtk_css_provider_load_from_data(
+      css,
+      "headerbar { background: #17131a; color: #f7f7f8; "
+      "border-bottom: 1px solid #2a2029; }"
+      "headerbar:backdrop { background: #17131a; }"
+      "headerbar button { color: #f7f7f8; }",
+      -1, NULL);
+  gtk_style_context_add_provider_for_screen(
+      gdk_screen_get_default(), GTK_STYLE_PROVIDER(css),
+      GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+  g_object_unref(css);
   GtkWindow* window =
       GTK_WINDOW(gtk_application_window_new(GTK_APPLICATION(application)));
 

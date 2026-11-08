@@ -721,7 +721,9 @@ class _TokenBreakdown extends StatelessWidget {
                     if (part.$2 > 0)
                       Expanded(
                         flex: part.$2,
-                        child: ColoredBox(color: part.$3),
+                        child: SizedBox.expand(
+                          child: ColoredBox(color: part.$3),
+                        ),
                       ),
                 ],
               ),
